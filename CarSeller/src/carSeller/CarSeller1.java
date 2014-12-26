@@ -6,7 +6,7 @@ public class CarSeller1 {
     private String windows;
     private String engine;
     private boolean ac;
-    private String productionYear;
+    private final String productionYear;
     private static final String companyName="LCU Car Seller";
     
     public CarSeller1(String windows, String engine, 
@@ -33,7 +33,7 @@ public class CarSeller1 {
         return engine;
     }
     
-    public void setEngine(String surface){
+    public void setEngine(String engine){
         this.engine=engine;
     }
     
