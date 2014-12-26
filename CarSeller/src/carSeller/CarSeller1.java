@@ -45,48 +45,74 @@ public class CarSeller1 {
         this.ac=ac;
     }
     
-     public int getPrice(){
-        int fuelprice, dieselprice, electricalprice, acPrice, windowsprice, price;
+     public int getEnginePrice(){
+        int fuelEnginePrice, dieselEnginePrice, electricalEnginePrice;
         switch(productionYear){
             
-        }
-      case "2012":
-                fuel=10000;
-                diselprice=9500;
-                electricalprice=11500;
+        
+        case "2012":
+                fuelEnginePrice=10000;
+                dieselEnginePrice=9500;
+                electricalEnginePrice=11500;
+               
             case "2013":
-                fuel=12000;
-                diselprice=11500;
-                electricalprice=13500;
+                fuelEnginePrice=12000;
+                dieselEnginePrice=11500;
+                electricalEnginePrice=13500;
+                
                 break;
             case "2014":
-               fuel=14000;
-                diselprice=13500;
-                electricalprice=15500;
+               fuelEnginePrice=14000;
+                dieselEnginePrice=13500;
+                electricalEnginePrice=15500;
+               
                 break;
             case "2015": 
-               fuel=16000;
-                diselprice=15500;
-                electricalprice=17500;
+               fuelEnginePrice=16000;
+                dieselEnginePrice=15500;
+                electricalEnginePrice=17500;
+                
             default: 
-               fuel=0;
-                diselprice=0;
-                electricalprice=0;
+               fuelEnginePrice=0;
+                dieselEnginePrice=0;
+                electricalEnginePrice=0;
         }
+         if(productionYear <="2014"){
+            engine != "electrical";
+         }
+     
+        
+         public int getPrice(){
+        int windowsPrice, acPrice ;
+        {
+            
+                acPrice= 500;
+                windowsPrice= 1000;
+                
         if(ac==false){
             acPrice=0;
+         }
+        if(windows=="electrical"){
+           windowsPrice=500;
+        }
+        else
+          if(windows=="manual"){
+           windowsPrice=0;
+           }
         }
        
-         If(ac==true){
-            acPrice=1000;
-            
-       }
+      
          
+       
+       
+         
+   public int getCarPrice(){
+        int carPrice;
+   
         
-        
-     
-    
-    
-     
-    
-        
+        carPrice= (EnginePrice +  windowsPrice
+                + acPrice );
+       
+       return carPrice;
+    }
+}
