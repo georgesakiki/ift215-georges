@@ -46,73 +46,90 @@ public class CarSeller1 {
     }
     
      public int getEnginePrice(){
-        int fuelEnginePrice, dieselEnginePrice, electricalEnginePrice;
+        int fuelengineprice, dieselengineprice, electricalengineprice;
         switch(productionYear){
             
         
         case "2012":
-                fuelEnginePrice=10000;
-                dieselEnginePrice=9500;
-                electricalEnginePrice=11500;
+                fuelengineprice=10000;
+                dieselengineprice=9500;
+                electricalengineprice=11500;
                
             case "2013":
-                fuelEnginePrice=12000;
-                dieselEnginePrice=11500;
-                electricalEnginePrice=13500;
+                fuelengineprice=12000;
+                dieselengineprice=11500;
+                electricalengineprice=13500;
                 
                 break;
             case "2014":
-               fuelEnginePrice=14000;
-                dieselEnginePrice=13500;
-                electricalEnginePrice=15500;
+               fuelengineprice=14000;
+                dieselengineprice=13500;
+                electricalengineprice=15500;
                
                 break;
             case "2015": 
-               fuelEnginePrice=16000;
-                dieselEnginePrice=15500;
-                electricalEnginePrice=17500;
+               fuelengineprice=16000;
+                dieselengineprice=15500;
+                electricalengineprice=17500;
                 
             default: 
-               fuelEnginePrice=0;
-                dieselEnginePrice=0;
-                electricalEnginePrice=0;
+               fuelengineprice=0;
+                dieselengineprice=0;
+                electricalengineprice=0;
         }
-         if(productionYear <="2014"){
-            engine != "electrical";
+     
+                
+                
+               
+ 
+    
+         if (productionYear = "2013" || "2012"){
+            engine (!electrical);
          }
+     }
+     
      
         
-         public int getPrice(){
-        int windowsPrice, acPrice ;
+         public int getAcPrice(){
+        int  acprice ;
         {
-            
-                acPrice= 500;
-                windowsPrice= 1000;
-                
-        if(ac==false){
-            acPrice=0;
+            acprice= 500;
+        }
+            if(ac==false){
+            acprice=0;
          }
-        if(windows=="electrical"){
-           windowsPrice=500;
+        }
+         
+        
+         public int getWindowsPrice(){
+             int windowsprice;
+             {
+             windowsprice= 1000;    
+             }
+              if(windows=="electrical"){
+           windowsprice=500;
         }
         else
-          if(windows=="manual"){
-           windowsPrice=0;
+          if(windows=="manual"){ 
+           windowsprice=0;
+           
            }
-        }
-       
-      
+             
+         }
          
-       
-       
+             
+             
+     
          
-   public int getCarPrice(){
-        int carPrice;
-   
+   public int getPrice(){
+        int price;
+        {
         
-        carPrice= (EnginePrice +  windowsPrice
-                + acPrice );
+       price= (total +  windowsprice
+                + acprice );
        
-       return carPrice;
+       return price;
     }
-}
+  }
+ }
+
