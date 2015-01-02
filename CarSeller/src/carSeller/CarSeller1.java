@@ -6,18 +6,18 @@ public class CarSeller1 {
     private int windows;
     private int engine;
     private boolean ac;
-    private final String productionYear;
-    private static final String companyName="LCU Car Seller";
+    private final int productionYear;
+   
     
     public CarSeller1(int windows, int engine, 
-            boolean ac, String productionYear){
+            boolean ac, int productionYear){
         this.windows=windows;
         this.engine=engine;
         this.ac=ac;
         this.productionYear=productionYear;
     }
     
-     public String getProductionYear(){
+     public int getProductionYear(){
         return productionYear;
      }
      
@@ -51,8 +51,10 @@ public class CarSeller1 {
         int Price,ACPrice;
     if(ac==true){
             ACPrice=1000;
-        }else 
-        ACPrice=0;
+        }
+     else 
+    { ACPrice=0;
+    }
     Price=ACPrice+windows+engine;
     return Price;
     }

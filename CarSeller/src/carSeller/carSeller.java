@@ -20,8 +20,7 @@ public class carSeller extends javax.swing.JFrame {
      */
     public carSeller() {
         initComponents();
-        this.setWindowsRelativeTo(this);
-        manualButton.setSelected(true);
+        this.setLocationRelativeTo(this);
         rootPane.setDefaultButton(SUBMITBUT);
         this.setTitle("Car Seller");
     }
@@ -178,12 +177,7 @@ public class carSeller extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
- private void electricalButtonStateChanged(javax.swing.event.ChangeEvent evt) {                                      
-        // TODO add your handling code here:
-        if(electricalButton.isSelected()){
-           int Windows = 500;
-        }
- }
+
  
   private void prodyearLabelActionPerformed(java.awt.event.ActionEvent evt) {                                                  
 
@@ -212,9 +206,8 @@ public class carSeller extends javax.swing.JFrame {
         if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)){
                 evt.consume();
         }
-        if(jTextField1.getText().length()>=4){
-evt.consume();
-}
+       
+
     }//GEN-LAST:event_jTextField1KeyTyped
 
     private void SUBMITBUTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SUBMITBUTActionPerformed
@@ -228,31 +221,31 @@ evt.consume();
             }else{
                 Windows=0;
             }
-              int Productionyear=0;
+              
              
           int ProductionYear = 
                     Integer.parseInt(prodyearLabel.getText());
           
-        int Fuel = 0,Diesel=0,Electrical=0 ,Engine=0,ACPrice=0;
+        int Fuel = 0,Diesel = 0,Electrical=0 ,Engine=0,ACPrice=0;
         switch(ProductionYear){
             case 2012:
-                if(jComboBox1.getSelectedIndex()==Fuel){
+                if(jComboBox1.getSelectedItem()=="Fuel"){
                     Engine=10000;
                 }else{
                     Engine=9500;
                 }
             break;
             case 2013:
-              if(jComboBox1.getSelectedIndex()==Fuel){
+              if(jComboBox1.getSelectedItem()=="Fuel"){
                     Engine=12000;
                 }else{
                     Engine=11500;
               }
                 break;
             case 2014:
-                if(jComboBox1.getSelectedIndex()==Fuel){
+                if(jComboBox1.getSelectedItem()=="Fuel"){
                     Engine=14000;
-                }else{if(jComboBox1.getSelectedIndex()==Diesel){
+                }else{if(jComboBox1.getSelectedItem()=="Diesel"){
                     Engine=13500;
                 }else
                     Engine=15500;
@@ -260,28 +253,28 @@ evt.consume();
                 }
                 break;
             case 2015:
-               if(jComboBox1.getSelectedIndex()==Fuel){
+               if(jComboBox1.getSelectedItem()=="Fuel"){
                     Engine=17000;
-                }else{if(jComboBox1.getSelectedIndex()==Diesel){
+                }else{if(jComboBox1.getSelectedItem()=="Diesel"){
                     Engine=15500;
                 }else
                     Engine=17500;
-                }
-        }
+                break;
+              
+               }
             boolean AC;
             AC=ACCheckBox.isSelected();
               
-              carSeller cs = 
-                new carSeller(ProductionYear,Windows,AC,Engine);
+              CarSeller1 cs = 
+                new CarSeller1(ProductionYear,Windows,AC,Engine);
         jLabel1.setText(Integer.toString(cs.getPrice()));
-        
-        }            
+            } 
+        }
     }//GEN-LAST:event_SUBMITBUTActionPerformed
-  
-     private void electricalButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:   
-    }                                            
-
+  private void electricalButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:  
+    }                            
+   
     private void jLabel1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
     }                                        
