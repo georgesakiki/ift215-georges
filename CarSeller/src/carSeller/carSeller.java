@@ -70,6 +70,11 @@ public class carSeller extends javax.swing.JFrame {
         ACCheckBox.setText("AC");
 
         SUBMITBUT.setText("SUBMIT");
+        SUBMITBUT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SUBMITBUTActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -180,6 +185,10 @@ public class carSeller extends javax.swing.JFrame {
 evt.consume();
 }
     }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void SUBMITBUTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SUBMITBUTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SUBMITBUTActionPerformed
 
     /**
      * @param args the command line arguments
