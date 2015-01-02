@@ -1,6 +1,7 @@
 package carSeller;
 
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,6 +20,10 @@ public class carSeller extends javax.swing.JFrame {
      */
     public carSeller() {
         initComponents();
+        this.setWindowsRelativeTo(this);
+        manualButton.setSelected(true);
+        rootPane.setDefaultButton(SUBMITBUT);
+        this.setTitle("Car Seller");
     }
 
     /**
@@ -173,7 +178,33 @@ public class carSeller extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+ private void electricalButtonStateChanged(javax.swing.event.ChangeEvent evt) {                                      
+        // TODO add your handling code here:
+        if(electricalButton.isSelected()){
+           int Windows = 500;
+        }
+ }
+ 
+  private void prodyearLabelActionPerformed(java.awt.event.ActionEvent evt) {                                                  
 
+    }  
+ 
+    private void prodyearLabelKeyReleased(java.awt.event.KeyEvent evt) {                                              
+        // TODO add your handling code here:
+        if(prodyearLabel.getText().trim().equals("2012")){
+            changeEngineValues(2012);
+        }else{if(prodyearLabel.getText().trim().equals("2013")){
+            changeEngineValues(2013);
+        }else{if(prodyearLabel.getText().trim().equals("2014")){
+            changeEngineValues(2014);
+        }else{if(prodyearLabel.getText().trim().equals("2015")){
+            changeEngineValues(2015);
+        }
+        }
+        }
+        }
+    }                               
+ 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
       
         // TODO add your handling code here:
@@ -188,11 +219,138 @@ evt.consume();
 
     private void SUBMITBUTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SUBMITBUTActionPerformed
         // TODO add your handling code here:
+        if(prodyearLabel.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Production Year","Warning",JOptionPane.INFORMATION_MESSAGE);
+          } else{
+              int Windows;
+              if(electricalButton.isSelected()){
+                Windows=500;
+            }else{
+                Windows=0;
+            }
+              int Productionyear=0;
+             
+          int ProductionYear = 
+                    Integer.parseInt(prodyearLabel.getText());
+          
+        int Fuel = 0,Diesel=0,Electrical=0 ,Engine=0,ACPrice=0;
+        switch(ProductionYear){
+            case 2012:
+                if(jComboBox1.getSelectedIndex()==Fuel){
+                    Engine=10000;
+                }else{
+                    Engine=9500;
+                }
+            break;
+            case 2013:
+              if(jComboBox1.getSelectedIndex()==Fuel){
+                    Engine=12000;
+                }else{
+                    Engine=11500;
+              }
+                break;
+            case 2014:
+                if(jComboBox1.getSelectedIndex()==Fuel){
+                    Engine=14000;
+                }else{if(jComboBox1.getSelectedIndex()==Diesel){
+                    Engine=13500;
+                }else
+                    Engine=15500;
+                
+                }
+                break;
+            case 2015:
+               if(jComboBox1.getSelectedIndex()==Fuel){
+                    Engine=17000;
+                }else{if(jComboBox1.getSelectedIndex()==Diesel){
+                    Engine=15500;
+                }else
+                    Engine=17500;
+                }
+        }
+            boolean AC;
+            AC=ACCheckBox.isSelected();
+              
+              carSeller cs = 
+                new carSeller(ProductionYear,Windows,AC,Engine);
+        jLabel1.setText(Integer.toString(cs.getPrice()));
+        
+        }            
     }//GEN-LAST:event_SUBMITBUTActionPerformed
+  
+     private void electricalButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:   
+    }                                            
 
+    private void jLabel1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
+
+    private void prodyearLabelComponentAdded(java.awt.event.ContainerEvent evt) {                                                 
+        // TODO add your handling code here:
+    }                                                
+
+    private void prodyearLabelKeyTyped(java.awt.event.KeyEvent evt) {                                           
+        // TODO add your handling code here:
+        if(prodyearLabel.getText().length()>=4){
+           evt.consume();
+        }
+    }                                          
+
+    private void prodyearLabelKeyPressed(java.awt.event.KeyEvent evt) {                                             
+        // TODO add your handling code here:
+    }                                            
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+       if(jComboBox1.getSelectedItem()=="Electrical"){
+           ACCheckBox.setVisible(false);
+       }else
+          ACCheckBox.setVisible(true);
+           
+       
+    }                                         
+
+    private void prodyearLabelFocusLost(java.awt.event.FocusEvent evt) {                                            
+        // TODO add your handling code here:
+        
+    }                                           
+
+    private void  ACCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        // TODO add your handling code here:
+    }                                     
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {                                           
+        // TODO add your handling code here:
+    }    
+     private void changeEngineValues(int ProductionYear){
+        
+       jComboBox1.removeAllItems();
+       switch(ProductionYear){
+            case 2012:
+                jComboBox1.addItem("Fuel");
+                jComboBox1.addItem("Diesel");
+                break;
+            case 2013:
+                jComboBox1.addItem("Fuel");
+                jComboBox1.addItem("Diesel");
+                break;
+            case 2014:
+                jComboBox1.addItem("Fuel");
+                jComboBox1.addItem("Diesel");
+                jComboBox1.addItem("Electrical");
+                break;
+            default:
+                jComboBox1.addItem("Fuel");
+                jComboBox1.addItem("Diesel");
+                jComboBox1.addItem("Electrical");
+                break;
+        }  
+    }
     /**
      * @param args the command line arguments
      */
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
