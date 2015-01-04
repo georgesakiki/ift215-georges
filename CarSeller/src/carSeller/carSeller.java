@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package carSeller;
 
 import java.awt.event.KeyEvent;
@@ -34,6 +39,10 @@ public class carSeller extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         prodyearLabel = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -54,7 +63,17 @@ public class carSeller extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Options"));
 
         prodyearLabel.setText("Production year:");
+        prodyearLabel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                prodyearLabelKeyPressed(evt);
+            }
+        });
 
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField1KeyTyped(evt);
@@ -63,9 +82,12 @@ public class carSeller extends javax.swing.JFrame {
 
         windowsLabel.setText("Windows :");
 
+        buttonGroup1.add(electricalButton);
         electricalButton.setText("Electrical");
 
+        buttonGroup1.add(manualButton);
         manualButton.setText("Manual");
+        manualButton.setAutoscrolls(true);
 
         engineLabel1.setText("Engine:");
 
@@ -180,7 +202,7 @@ public class carSeller extends javax.swing.JFrame {
 
  
   private void prodyearLabelActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-
+      // TODO add your handling code here:
     }  
  
     private void prodyearLabelKeyReleased(java.awt.event.KeyEvent evt) {                                              
@@ -198,10 +220,9 @@ public class carSeller extends javax.swing.JFrame {
         }
         }
     }                               
- 
+    
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
-      
-        // TODO add your handling code here:
+// TODO add your handling code here:
         char c=evt.getKeyChar();
         if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)){
                 evt.consume();
@@ -214,7 +235,8 @@ public class carSeller extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(prodyearLabel.getText().trim().equals("")){
             JOptionPane.showMessageDialog(this, "Please enter Production Year","Warning",JOptionPane.INFORMATION_MESSAGE);
-          } else{
+          } 
+        else{
               int Windows;
               if(electricalButton.isSelected()){
                 Windows=500;
@@ -249,28 +271,36 @@ public class carSeller extends javax.swing.JFrame {
                     Engine=13500;
                 }else
                     Engine=15500;
-                
-                }
-                break;
-            case 2015:
+                } 
+               break;
+              case 2015:
                if(jComboBox1.getSelectedItem()=="Fuel"){
                     Engine=17000;
-                }else{if(jComboBox1.getSelectedItem()=="Diesel"){
+                }else{ if(jComboBox1.getSelectedItem()=="Diesel"){
                     Engine=15500;
                 }else
                     Engine=17500;
+                
                 break;
               
                }
-            boolean AC;
+              boolean AC;
             AC=ACCheckBox.isSelected();
               
               CarSeller1 cs = 
                 new CarSeller1(ProductionYear,Windows,AC,Engine);
         jLabel1.setText(Integer.toString(cs.getPrice()));
-            } 
+        }
         }
     }//GEN-LAST:event_SUBMITBUTActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void prodyearLabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_prodyearLabelKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prodyearLabelKeyPressed
   private void electricalButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:  
     }                            
@@ -288,25 +318,24 @@ public class carSeller extends javax.swing.JFrame {
         if(prodyearLabel.getText().length()>=4){
            evt.consume();
         }
-    }                                          
+    }                                     
 
-    private void prodyearLabelKeyPressed(java.awt.event.KeyEvent evt) {                                             
+   /* private void prodyearLabelKeyPressed(java.awt.event.KeyEvent evt) {                                             
         // TODO add your handling code here:
-    }                                            
+       
+    }       
+*/
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
-       if(jComboBox1.getSelectedItem()=="Electrical"){
-           ACCheckBox.setVisible(false);
-       }else
-          ACCheckBox.setVisible(true);
-           
        
     }                                         
 
     private void prodyearLabelFocusLost(java.awt.event.FocusEvent evt) {                                            
         // TODO add your handling code here:
-        
+        if (jTextField1.getText().equals("2012") || jTextField1.getText().equals("2013")){
+jComboBox1.removeItem("Electrical");
+}
     }                                           
 
     private void  ACCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {                                      
@@ -379,6 +408,10 @@ public class carSeller extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox ACCheckBox;
     private javax.swing.JButton SUBMITBUT;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JRadioButton electricalButton;
     private javax.swing.JLabel engineLabel1;
     private javax.swing.JComboBox jComboBox1;
